@@ -1,25 +1,19 @@
 {
   "name": "splitter-vs-splitter",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build:gh": "cross-env GITHUB_ACTIONS=true vite build",
-    "build:local": "vite build",
-    "build": "npm run build:local && npm run build:gh",
-    "preview:local": "vite preview --port 8080 --outDir dist-local",
-    "preview:gh": "vite preview --port 8081 --outDir dist"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@stdlib/nlp-sentencize": "0.2.2",
-    "string-segmenter": "1.2.0"
+    "string-segmenter": "1.2.0",
+    "express": "4.21.2",
+    "cors": "2.8.5"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "vite": "6.0.3"
+    "nodemon": "3.1.9"
   }
 }

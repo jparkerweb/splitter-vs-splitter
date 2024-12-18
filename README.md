@@ -12,8 +12,8 @@ A web-based tool to compare different sentence splitting libraries side by side.
 - Keyboard shortcuts (Ctrl + Enter to split)
 
 ## Tech Stack
-- Vanilla JavaScript
-- Vite for building and development
+- Express.js backend
+- Vanilla JavaScript frontend
 - CSS3 with Flexbox
 - No external UI libraries or frameworks
 
@@ -36,25 +36,20 @@ npm install
 ```
 
 ### Development
-Run the development server:
+Run the development server with auto-reload:
 ```bash
 npm run dev
 ```
 
-### Production Build
-Build for production:
+### Production
+Run the production server:
 ```bash
-npm run build
-```
-
-Preview the production build:
-```bash
-npm run preview
+npm start
 ```
 
 ## Usage
 1. Enter or paste your text in the input area
-2. Click "Split Sentences" or press Ctrl + Enter
+2. Click "Process Text" or press Ctrl + Enter
 3. Compare the results from both libraries side by side
 4. Each sentence is highlighted with a matching color in both outputs for easy comparison
 
