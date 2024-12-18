@@ -35,6 +35,11 @@ cd splitter-vs-splitter
 npm install
 ```
 
+3. Create a `.env` file with the following (edit the port as needed):
+```bash
+cp .env.example .env
+```
+
 ### Development
 Run the development server with auto-reload:
 ```bash

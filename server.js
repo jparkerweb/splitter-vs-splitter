@@ -4,6 +4,9 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import sentencize from '@stdlib/nlp-sentencize';
 import { splitBySentence } from 'string-segmenter';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();

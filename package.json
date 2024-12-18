@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "@stdlib/nlp-sentencize": "0.2.2",
-    "string-segmenter": "1.2.0",
+    "cors": "2.8.5",
+    "dotenv": "^16.4.7",
     "express": "4.21.2",
-    "cors": "2.8.5"
+    "string-segmenter": "1.2.0"
   },
   "devDependencies": {
     "nodemon": "3.1.9"
