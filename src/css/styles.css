@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #2b0a0a;
+    background-image: radial-gradient(circle, #4a0f0f 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.input-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4a0f0f;
+    color: rgb(238, 196, 196);
+    border: 2px solid rgb(255, 181, 181);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.submit-button:active {
+    background-color: #2b0a0a;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.output-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.output-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.sentence-count {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    padding: 4px 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.output {
+    min-height: 200px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .output-section {
+        flex-direction: column;
+    }
+    
+    .output-container {
+        margin-bottom: 20px;
+    }
+} 

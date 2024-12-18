@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Splitter Comparison</title>
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg">
+</head>
+<body>
+    <div class="container">
+        <h1>🪓 Splitter vs Splitter</h1>
+        <div class="input-section">
+            <textarea id="input-text" placeholder="Enter your text here..."></textarea>
+            <button id="submit-btn" class="submit-button">--- Split Sentences ---</button>
+        </div>
+        <div class="output-section">
+            <div class="output-container">
+                <h2><a href="https://www.npmjs.com/package/@stdlib/nlp-sentencize" target="_blank">@stdlib/nlp-sentencize</a></h2>
+                <div id="stdlib-count" class="sentence-count"></div>
+                <div id="stdlib-output" class="output"></div>
+            </div>
+            <div class="output-container">
+                <h2><a href="https://www.npmjs.com/package/string-segmenter" target="_blank">string-segmenter</a></h2>
+                <div id="segmenter-count" class="sentence-count"></div>
+                <div id="segmenter-output" class="output"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html> 
