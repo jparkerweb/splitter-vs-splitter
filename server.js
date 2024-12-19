@@ -3,7 +3,7 @@ import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import sentencize from '@stdlib/nlp-sentencize';
-import { splitBySentence } from 'string-segmenter';
+import { parseSentences } from 'sentence-parse';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -29,17 +29,12 @@ app.post('/api/process-text', async (req, res) => {
     // Process with stdlib
     const stdlibSentences = sentencize(text);
 
-    // Process with segmenter
-    const segmenterSentences = [];
-    for (const { segment } of splitBySentence(text)) {
-      if (segment.trim().length > 0) {
-        segmenterSentences.push(segment.trim());
-      }
-    }
+    // Process with sentence-parse
+    const sentenceParseSentences = await parseSentences(text);
 
     res.json({
       stdlibSentences,
-      segmenterSentences
+      sentenceParseSentences
     });
   } catch (error) {
     console.error('Processing error:', error);

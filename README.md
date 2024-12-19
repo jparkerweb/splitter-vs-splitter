@@ -2,7 +2,7 @@
 
 A web-based tool to compare different sentence splitting libraries side by side. Currently compares:
 - [@stdlib/nlp-sentencize](https://www.npmjs.com/package/@stdlib/nlp-sentencize)
-- [string-segmenter](https://www.npmjs.com/package/string-segmenter)
+- [sentence-parse](https://www.npmjs.com/package/sentence-parse)
 
 ## Features
 - Real-time sentence splitting comparison

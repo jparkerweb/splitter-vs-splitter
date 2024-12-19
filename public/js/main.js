@@ -1,9 +1,9 @@
 const textArea = document.getElementById('input-text');
 const submitButton = document.getElementById('submit-btn');
 const stdlibOutput = document.getElementById('stdlib-output');
-const segmenterOutput = document.getElementById('segmenter-output');
+const sentenceParseOutput = document.getElementById('sentence-parse-output');
 const stdlibCount = document.getElementById('stdlib-count');
-const segmenterCount = document.getElementById('segmenter-count');
+const sentenceParseCount = document.getElementById('sentence-parse-count');
 
 function generatePastelColor() {
     const hue = Math.floor(Math.random() * 360);
@@ -11,10 +11,16 @@ function generatePastelColor() {
 }
 
 function createColoredSentences(sentences, colors) {
-    return sentences.map((sentence, index) => {
-        const backgroundColor = colors[index];
-        return `<span style="display: block; background-color: ${backgroundColor}; margin: 4px 0; padding: 4px;">${sentence}</span>`;
-    }).join('');
+    // Ensure sentences is an array
+    const sentenceArray = Array.isArray(sentences) ? sentences : [sentences];
+    
+    return sentenceArray
+        .filter(sentence => sentence && typeof sentence === 'string')
+        .map((sentence, index) => {
+            const backgroundColor = colors[index];
+            return `<span style="display: block; background-color: ${backgroundColor}; margin: 4px 0; padding: 4px;">${sentence}</span>`;
+        })
+        .join('');
 }
 
 function updateSentenceCount(count, element) {
@@ -35,22 +41,26 @@ async function updateOutputs() {
 
         if (!response.ok) throw new Error('Network response was not ok');
         
-        const { stdlibSentences, segmenterSentences } = await response.json();
+        const { stdlibSentences, sentenceParseSentences } = await response.json();
+        
+        // Ensure we have arrays
+        const stdlibArray = Array.isArray(stdlibSentences) ? stdlibSentences : [text];
+        const parseArray = Array.isArray(sentenceParseSentences) ? sentenceParseSentences : [text];
         
         // Generate colors for the maximum number of sentences
-        const maxSentences = Math.max(stdlibSentences.length, segmenterSentences.length);
+        const maxSentences = Math.max(stdlibArray.length, parseArray.length);
         const colors = Array.from({ length: maxSentences }, () => generatePastelColor());
         
         // Create colored output for both sets of sentences
-        stdlibOutput.innerHTML = createColoredSentences(stdlibSentences, colors);
-        segmenterOutput.innerHTML = createColoredSentences(segmenterSentences, colors);
+        stdlibOutput.innerHTML = createColoredSentences(stdlibArray, colors);
+        sentenceParseOutput.innerHTML = createColoredSentences(parseArray, colors);
 
         // Update sentence counts
-        updateSentenceCount(stdlibSentences.length, stdlibCount);
-        updateSentenceCount(segmenterSentences.length, segmenterCount);
+        updateSentenceCount(stdlibArray.length, stdlibCount);
+        updateSentenceCount(parseArray.length, sentenceParseCount);
     } catch (error) {
         console.error('Error:', error);
-        stdlibOutput.innerHTML = segmenterOutput.innerHTML = '<span class="error">Error processing text</span>';
+        stdlibOutput.innerHTML = sentenceParseOutput.innerHTML = '<span class="error">Error processing text</span>';
     }
 }
 
