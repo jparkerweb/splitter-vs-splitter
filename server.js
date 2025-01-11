@@ -30,7 +30,10 @@ app.post('/api/process-text', async (req, res) => {
     const stdlibSentences = sentencize(text);
 
     // Process with sentence-parse
-    const sentenceParseSentences = await parseSentences(text);
+    const sentenceParseSentences = await parseSentences(text, {
+      observeMultipleLineBreaks: true,
+      removeStartLineSequences: ['>']
+    });
 
     res.json({
       stdlibSentences,

@@ -1,18 +1,19 @@
 {
   "name": "splitter-vs-splitter",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "clean": "npx rimraf node_modules package-lock.json && npm install"
   },
   "dependencies": {
     "@stdlib/nlp-sentencize": "0.2.2",
     "cors": "2.8.5",
     "dotenv": "^16.4.7",
     "express": "4.21.2",
-    "sentence-parse": "^1.0.2"
+    "sentence-parse": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "3.1.9"
