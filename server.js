@@ -32,7 +32,8 @@ app.post('/api/process-text', async (req, res) => {
     // Process with sentence-parse
     const sentenceParseSentences = await parseSentences(text, {
       observeMultipleLineBreaks: true,
-      removeStartLineSequences: ['>']
+      removeStartLineSequences: ['>'],
+      excludeNonLetterSentences: true
     });
 
     res.json({
